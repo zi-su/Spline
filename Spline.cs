@@ -50,4 +50,17 @@ public class Spline : MonoBehaviour
         ret = t3 + t2 + t1 + t0;
         return ret;
     }
+
+    public static Vector3 GetBezier2(float t, Vector3 p1, Vector3 p2, Vector3 p3)
+    {
+        Vector3 ret = Vector3.zero;
+        System.Collections.Generic.List<Vector3> vlist_ = new System.Collections.Generic.List<Vector3>();
+        
+        Vector3 v0 = t * (p2 - p1) + p1;
+        Vector3 v1 = t * (p3 - p2) + p2;
+        
+        ret = t * (v1 - v0) + v0;
+
+        return ret;
+    }
 }
